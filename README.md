@@ -6,8 +6,8 @@ Planeamento e construção de uma rede avançada.
 
 # BGP relations
 ## External BGP
-#### (remote-asMadrid)
-Lisboa1, Lisboa2, Porto
+#### (remote-as)
+Madrid, Lisboa1, Lisboa2, Porto
 
 ## Internal BGP
 #### (remote-as, next-hop-self, update-source lp0)
