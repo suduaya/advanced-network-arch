@@ -1,6 +1,9 @@
 # advanced-network-arch
 Planeamento e construção de uma rede avançada.
 
+# network topology
+![topology](topology.png)
+
 # BGP relations
 ## External BGP
 #### (remote-asMadrid)
@@ -15,5 +18,3 @@ Porto, Lisboa2, Aveiro, Oeiras
 EmpC (definido em Porto)
 
 
-# network topology
-![topology](topology.png)
