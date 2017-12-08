@@ -2,16 +2,16 @@
 Planeamento e construção de uma rede avançada.
 
 # BGP relations
-##External BGP
-####remote-asMadrid
+## External BGP
+#### (remote-asMadrid)
 Lisboa1, Lisboa2, Porto
 
 ## Internal BGP
-#### remote-as, next-hop-self, update-source lp0
+#### (remote-as, next-hop-self, update-source lp0)
 Porto, Lisboa2, Aveiro, Oeiras
 
 ## Private AS
-#### remove-private-as
+#### (remove-private-as)
 EmpC (definido em Porto)
 
 
