@@ -19,5 +19,14 @@ ip add 4.4.4.1 255.255.255.252
 no shut
 
 
+!BGP configs
+router bgp 20000		!my AS
+address-family ipv4 unicast	!ipv4
+
+neighbor 4.4.4.6 remote-as 40000 !eBGP Neighboring with Lisboa1
+neighbor 4.4.4.4 remote-as 1000  !eBGP Neighboring with Lisboa2
+neighbor 4.4.4.2 remote-as 1000  !eBGP Neighboring with Porto
+
+
 End
 Write
