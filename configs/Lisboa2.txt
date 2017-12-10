@@ -29,5 +29,30 @@ int f1/1
 ip add 192.100.1.5 255.255.255.252
 no shut
 
+
+!BGP configs
+router bgp 1000
+address-family ipv4 unicast
+
+neighbor 4.4.4.3 remote-as 20000 	!eBGP Neighboring with Madrid
+neighbor 4.4.4.7 remote-as 20000 	!eBGP Neighboring with Lisboa1
+
+
+neighbor 10.10.10.2 remote-as 1000 ! Aveiro
+neighbor 10.10.10.2 next-hop-self
+neighbor 10.10.10.2 update-source Loopback 0
+
+neighbor 10.10.10.1 remote-as 1000 ! Porto
+neighbor 10.10.10.1 next-hop-self
+neighbor 10.10.10.1 update-source Loopback 0
+
+neighbor 10.10.10.4 remote-as 1000 ! Oeiras
+neighbor 10.10.10.4 next-hop-self
+neighbor 10.10.10.4 update-source Loopback 0
+
+network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
+
+!aggregate-address 192.100.1.0 255.255.255.0 summary-only
+
 End
 Write
