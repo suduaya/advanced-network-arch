@@ -1,7 +1,7 @@
 Conf t
 
 int f0/0
-ip add 192.100.1.22 255.255.255.252
+ip add 192.100.1.18 255.255.255.252
 no shut
 ip ospf 1 area 0
 

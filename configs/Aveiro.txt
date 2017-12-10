@@ -14,14 +14,34 @@ no shut
 
 !EmpA1 link
 int f0/1
-ip add 192.100.1.5 255.255.255.252
+ip add 192.100.1.9 255.255.255.252
 no shut
 
 
 !EmpB1 link
 int f1/0
-ip add 192.100.1.7 255.255.255.252
+ip add 192.100.1.13 255.255.255.252
 no shut
+
+!BGP configs
+router bgp 1000
+address-family ipv4 unicast
+
+neighbor 10.10.10.1 remote-as 1000 ! Porto
+neighbor 10.10.10.1 next-hop-self
+neighbor 10.10.10.1 update-source Loopback 0
+
+neighbor 10.10.10.3 remote-as 1000 ! Lisboa2
+neighbor 10.10.10.3 next-hop-self
+neighbor 10.10.10.3 update-source Loopback 0
+
+neighbor 10.10.10.4 remote-as 1000 ! Oeiras
+neighbor 10.10.10.4 next-hop-self
+neighbor 10.10.10.4 update-source Loopback 0
+
+network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
+
+!aggregate-address 192.100.1.0 255.255.255.0 summary-only
 
 
 End
