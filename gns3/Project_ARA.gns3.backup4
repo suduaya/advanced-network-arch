@@ -1,0 +1,1731 @@
+{
+    "auto_start": false,
+    "name": "Project_ARA",
+    "project_id": "0eb52da5-b529-4cbb-87da-c2cbee401d4c",
+    "revision": 4,
+    "topology": {
+        "links": [
+            {
+                "description": "Link from Madrid port FastEthernet0/0 to Lisboa1 port FastEthernet0/0",
+                "destination_node_id": 2,
+                "destination_port_id": 7,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": 33.8323242007084,
+                    "y": -17.99133951776203
+                },
+                "id": 1,
+                "source_node_id": 1,
+                "source_port_id": 3,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": 32.1676757992916,
+                    "y": 61.991339517762015
+                }
+            },
+            {
+                "description": "Link from Porto port FastEthernet0/0 to Madrid port FastEthernet0/1",
+                "destination_node_id": 1,
+                "destination_port_id": 4,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/1",
+                    "x": 72.99999970441405,
+                    "y": 22.00486280526593
+                },
+                "id": 3,
+                "source_node_id": 3,
+                "source_port_id": 11,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -6.9999997044140585,
+                    "y": 21.99513719473407
+                }
+            },
+            {
+                "description": "Link from Lisboa2 port FastEthernet0/0 to Lisboa1 port FastEthernet0/1",
+                "destination_node_id": 2,
+                "destination_port_id": 8,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/1",
+                    "x": 72.99860393611957,
+                    "y": 22.334190307221732
+                },
+                "id": 4,
+                "source_node_id": 4,
+                "source_port_id": 15,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -6.998603936119558,
+                    "y": 21.665809692778268
+                }
+            },
+            {
+                "description": "Link from Porto port FastEthernet0/1 to Ethernet Core port 1",
+                "destination_node_id": 5,
+                "destination_port_id": 17,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "1",
+                    "x": -1.9343732180151392,
+                    "y": 1.9050469396187282
+                },
+                "id": 5,
+                "source_node_id": 3,
+                "source_port_id": 12,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/1",
+                    "x": 70.43437321801514,
+                    "y": 36.09495306038127
+                }
+            },
+            {
+                "description": "Link from Lisboa2 port FastEthernet0/1 to Ethernet Core port 2",
+                "destination_node_id": 5,
+                "destination_port_id": 18,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "2",
+                    "x": 0.9780354504002844,
+                    "y": 36.20480050968533
+                },
+                "id": 6,
+                "source_node_id": 4,
+                "source_port_id": 16,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/1",
+                    "x": 67.52196454959972,
+                    "y": 1.7951994903146726
+                }
+            },
+            {
+                "description": "Link from Aveiro port FastEthernet0/0 to Ethernet Core port 3",
+                "destination_node_id": 5,
+                "destination_port_id": 19,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "3",
+                    "x": 73.731160348878,
+                    "y": 4.236566046499064
+                },
+                "id": 7,
+                "source_node_id": 6,
+                "source_port_id": 27,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -5.2311603488780065,
+                    "y": 33.763433953500936
+                }
+            },
+            {
+                "description": "Link from Oeiras port FastEthernet0/0 to Lisboa2 port FastEthernet1/0",
+                "destination_node_id": 4,
+                "destination_port_id": 13,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/0",
+                    "x": 69.66401089508412,
+                    "y": 37.99219513028629
+                },
+                "id": 8,
+                "source_node_id": 9,
+                "source_port_id": 39,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -3.664010895084118,
+                    "y": 6.007804869713709
+                }
+            },
+            {
+                "description": "Link from Aveiro port FastEthernet0/1 to EmpA1 port FastEthernet0/0",
+                "destination_node_id": 7,
+                "destination_port_id": 31,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -2.928668881911051,
+                    "y": 39.58211455923308
+                },
+                "id": 9,
+                "source_node_id": 6,
+                "source_port_id": 28,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/1",
+                    "x": 68.92866888191105,
+                    "y": 4.4178854407669235
+                }
+            },
+            {
+                "description": "Link from Aveiro port FastEthernet1/0 to EmpB1 port FastEthernet0/0",
+                "destination_node_id": 8,
+                "destination_port_id": 35,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -2.482742139782488,
+                    "y": 3.534491335419304
+                },
+                "id": 10,
+                "source_node_id": 6,
+                "source_port_id": 25,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/0",
+                    "x": 68.48274213978249,
+                    "y": 40.46550866458068
+                }
+            },
+            {
+                "description": "Link from Oeiras port FastEthernet0/1 to EmpB2 port FastEthernet0/0",
+                "destination_node_id": 10,
+                "destination_port_id": 43,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -4.436598215691788,
+                    "y": 36.089042339238816
+                },
+                "id": 11,
+                "source_node_id": 9,
+                "source_port_id": 40,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/1",
+                    "x": 70.43659821569179,
+                    "y": 7.910957660761177
+                }
+            },
+            {
+                "description": "Link from Oeiras port FastEthernet1/0 to EmpA2 port FastEthernet0/0",
+                "destination_node_id": 11,
+                "destination_port_id": 47,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": 0.21416963574648662,
+                    "y": -0.9148276739406072
+                },
+                "id": 12,
+                "source_node_id": 9,
+                "source_port_id": 37,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/0",
+                    "x": 65.78583036425351,
+                    "y": 44.91482767394059
+                }
+            },
+            {
+                "description": "Link from Madrid port FastEthernet1/0 to netM1 port 1",
+                "destination_node_id": 13,
+                "destination_port_id": 57,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "1",
+                    "x": 74.98713278536223,
+                    "y": 9.615147269421783
+                },
+                "id": 13,
+                "source_node_id": 1,
+                "source_port_id": 1,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/0",
+                    "x": -6.487132785362235,
+                    "y": 28.384852730578217
+                }
+            },
+            {
+                "description": "Link from Madrid port FastEthernet1/1 to netM2 port 1",
+                "destination_node_id": 12,
+                "destination_port_id": 49,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "1",
+                    "x": 73.28865943068342,
+                    "y": 29.11553347873513
+                },
+                "id": 14,
+                "source_node_id": 1,
+                "source_port_id": 2,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/1",
+                    "x": -4.788659430683424,
+                    "y": 8.88446652126487
+                }
+            },
+            {
+                "description": "Link from Lisboa1 port FastEthernet1/0 to netL1 port 1",
+                "destination_node_id": 14,
+                "destination_port_id": 65,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "1",
+                    "x": 75.4775808826248,
+                    "y": 17.339039496501023
+                },
+                "id": 15,
+                "source_node_id": 2,
+                "source_port_id": 5,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/0",
+                    "x": -6.9775808826248635,
+                    "y": 20.660960503498977
+                }
+            },
+            {
+                "description": "Link from Internet Core port 2 to Lisboa1 port FastEthernet2/0",
+                "destination_node_id": 2,
+                "destination_port_id": 83,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f2/0",
+                    "x": 24.60807542138099,
+                    "y": -17.109789079804173
+                },
+                "id": 17,
+                "source_node_id": 15,
+                "source_port_id": 74,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "2",
+                    "x": 43.89192457861901,
+                    "y": 55.10978907980416
+                }
+            },
+            {
+                "description": "Link from Madrid port FastEthernet2/0 to Lisboa2 port FastEthernet1/1",
+                "destination_node_id": 4,
+                "destination_port_id": 14,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/1",
+                    "x": -1.7724149330377443,
+                    "y": 2.2293358805361834
+                },
+                "id": 18,
+                "source_node_id": 1,
+                "source_port_id": 81,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f2/0",
+                    "x": 67.77241493303774,
+                    "y": 41.77066411946382
+                }
+            },
+            {
+                "description": "Link from Internet Core port 1 to Madrid port FastEthernet2/1",
+                "destination_node_id": 1,
+                "destination_port_id": 82,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f2/1",
+                    "x": 17.65913397051105,
+                    "y": -14.941275417414488
+                },
+                "id": 19,
+                "source_node_id": 15,
+                "source_port_id": 73,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "1",
+                    "x": 50.84086602948895,
+                    "y": 52.94127541741449
+                }
+            }
+        ],
+        "nodes": [
+            {
+                "description": "Router c7200",
+                "dynamips_id": 1,
+                "id": 1,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Madrid",
+                    "x": 11.015625,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to netM1 on port 1",
+                        "id": 1,
+                        "link_id": 13,
+                        "name": "FastEthernet1/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to netM2 on port 1",
+                        "id": 2,
+                        "link_id": 14,
+                        "name": "FastEthernet1/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Lisboa1 on port FastEthernet0/0",
+                        "id": 3,
+                        "link_id": 1,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Porto on port FastEthernet0/0",
+                        "id": 4,
+                        "link_id": 3,
+                        "name": "FastEthernet0/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to Lisboa2 on port FastEthernet1/1",
+                        "id": 81,
+                        "link_id": 18,
+                        "name": "FastEthernet2/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to Internet Core on port 1",
+                        "id": 82,
+                        "link_id": 19,
+                        "name": "FastEthernet2/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5000,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca01.0216.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "Madrid",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i1_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "bff2de48-c4f3-46ba-b7b5-bdeac2e5f4fd",
+                "x": -280.0416305603426,
+                "y": -213.5857864376269
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 2,
+                "id": 2,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Lisboa1",
+                    "x": 8.9140625,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to netL1 on port 1",
+                        "id": 5,
+                        "link_id": 15,
+                        "name": "FastEthernet1/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 6,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Madrid on port FastEthernet0/0",
+                        "id": 7,
+                        "link_id": 1,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Lisboa2 on port FastEthernet0/0",
+                        "id": 8,
+                        "link_id": 4,
+                        "name": "FastEthernet0/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to Internet Core on port 2",
+                        "id": 83,
+                        "link_id": 17,
+                        "name": "FastEthernet2/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 84,
+                        "name": "FastEthernet2/1",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5001,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca02.0217.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "Lisboa1",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i2_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "ff3c7ad6-9060-4be4-88b0-7f1c495efa82",
+                "x": -282.840620433566,
+                "y": -79.10050506338831
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 3,
+                "id": 3,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Porto",
+                    "x": 15.2734375,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 9,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 10,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Madrid on port FastEthernet0/1",
+                        "id": 11,
+                        "link_id": 3,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Ethernet Core on port 1",
+                        "id": 12,
+                        "link_id": 5,
+                        "name": "FastEthernet0/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5002,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca03.0218.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "Porto",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i3_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "af3c9ec5-ac59-40f2-bccb-38ace4c1d3c4",
+                "x": -37.89949493661166,
+                "y": -213.55634918610406
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 4,
+                "id": 4,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Lisboa2",
+                    "x": 8.9140625,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to Oeiras on port FastEthernet0/0",
+                        "id": 13,
+                        "link_id": 8,
+                        "name": "FastEthernet1/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to Madrid on port FastEthernet2/0",
+                        "id": 14,
+                        "link_id": 18,
+                        "name": "FastEthernet1/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Lisboa1 on port FastEthernet0/1",
+                        "id": 15,
+                        "link_id": 4,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Ethernet Core on port 2",
+                        "id": 16,
+                        "link_id": 6,
+                        "name": "FastEthernet0/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5003,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca04.0219.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "Lisboa2",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i4_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "3c6bdd68-7370-4432-9c13-703566bf76df",
+                "x": -39.94112549695428,
+                "y": -77.07106781186548
+            },
+            {
+                "description": "Ethernet switch",
+                "device_id": "eb19060d-ffed-4c72-a0de-0931b6bb9b83",
+                "id": 5,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Ethernet Core",
+                    "x": -3.8125,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "description": "connected to Porto on port FastEthernet0/1",
+                        "id": 17,
+                        "link_id": 5,
+                        "name": "1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "description": "connected to Lisboa2 on port FastEthernet0/1",
+                        "id": 18,
+                        "link_id": 6,
+                        "name": "2",
+                        "nio": "NIO_UDP",
+                        "port_number": 2,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "description": "connected to Aveiro on port FastEthernet0/0",
+                        "id": 19,
+                        "link_id": 7,
+                        "name": "3",
+                        "nio": "NIO_UDP",
+                        "port_number": 3,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 20,
+                        "name": "4",
+                        "port_number": 4,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 21,
+                        "name": "5",
+                        "port_number": 5,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 22,
+                        "name": "6",
+                        "port_number": 6,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 23,
+                        "name": "7",
+                        "port_number": 7,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 24,
+                        "name": "8",
+                        "port_number": 8,
+                        "type": "access",
+                        "vlan": 1
+                    }
+                ],
+                "properties": {
+                    "name": "Ethernet Core"
+                },
+                "server_id": 1,
+                "type": "EthernetSwitch",
+                "x": 100.26450198781711,
+                "y": -154.5929291125633
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 5,
+                "id": 6,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Aveiro",
+                    "x": 12.3515625,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to EmpB1 on port FastEthernet0/0",
+                        "id": 25,
+                        "link_id": 10,
+                        "name": "FastEthernet1/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 26,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Ethernet Core on port 3",
+                        "id": 27,
+                        "link_id": 7,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to EmpA1 on port FastEthernet0/0",
+                        "id": 28,
+                        "link_id": 9,
+                        "name": "FastEthernet0/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5004,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca05.021b.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "Aveiro",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i5_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "1b6a0829-90c3-4fd9-93f0-4e2c685701e0",
+                "x": 231.45793616376875,
+                "y": -200.19090885900997
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 6,
+                "id": 7,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "EmpA1",
+                    "x": 10.8671875,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 29,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 30,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Aveiro on port FastEthernet0/1",
+                        "id": 31,
+                        "link_id": 9,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 32,
+                        "name": "FastEthernet0/1",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5005,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca06.021d.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "EmpA1",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i6_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "8acc7b81-e800-4a8b-b976-a3dfd6dbf372",
+                "x": 364.3940110268397,
+                "y": -265.2447327281723
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 7,
+                "id": 8,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "EmpB1",
+                    "x": 11.3984375,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 33,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 34,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Aveiro on port FastEthernet1/0",
+                        "id": 35,
+                        "link_id": 10,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 36,
+                        "name": "FastEthernet0/1",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5006,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca07.021e.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "EmpB1",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i7_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "47b4f549-6d57-41c2-bc39-3966059392c0",
+                "x": 370.050865276332,
+                "y": -128.0660171779821
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 8,
+                "id": 9,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Oeiras",
+                    "x": 12.3125,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to EmpA2 on port FastEthernet0/0",
+                        "id": 37,
+                        "link_id": 12,
+                        "name": "FastEthernet1/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 38,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Lisboa2 on port FastEthernet1/0",
+                        "id": 39,
+                        "link_id": 8,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to EmpB2 on port FastEthernet0/0",
+                        "id": 40,
+                        "link_id": 11,
+                        "name": "FastEthernet0/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5007,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca08.021f.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "Oeiras",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i8_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "8f9bb853-321c-4e6e-8cd1-f3d13adf5082",
+                "x": 248.4284989122458,
+                "y": 48.71067811865474
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 9,
+                "id": 10,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "EmpB2",
+                    "x": 11.3984375,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 41,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 42,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Oeiras on port FastEthernet0/1",
+                        "id": 43,
+                        "link_id": 11,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 44,
+                        "name": "FastEthernet0/1",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5008,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca09.0220.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "EmpB2",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i9_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "fea0bf7a-288c-431e-935c-7d0c2dcd7893",
+                "x": 379.95036021294374,
+                "y": -0.786796564403577
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 10,
+                "id": 11,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "EmpA2",
+                    "x": 10.8671875,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 45,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 46,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to Oeiras on port FastEthernet1/0",
+                        "id": 47,
+                        "link_id": 12,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 48,
+                        "name": "FastEthernet0/1",
+                        "port_number": 1
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 5009,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x60608040",
+                    "idlesleep": 30,
+                    "image": "c7200-adventerprisek9-mz.151-4.M2.image",
+                    "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
+                    "mac_addr": "ca0a.0221.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "EmpA2",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 512,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-2FE",
+                    "slot1": "PA-2FE-TX",
+                    "sparsemem": true,
+                    "startup_config": "configs/i10_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "4b9d4217-58dd-4c0f-916a-cf46a34ec698",
+                "x": 379.95036021294374,
+                "y": 140.6345596729059
+            },
+            {
+                "description": "Ethernet switch",
+                "device_id": "dbb244d6-6a2e-487c-a76c-635b5ca11aac",
+                "id": 12,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "netM2",
+                    "x": 15.4375,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "description": "connected to Madrid on port FastEthernet1/1",
+                        "id": 49,
+                        "link_id": 14,
+                        "name": "1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 50,
+                        "name": "2",
+                        "port_number": 2,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 51,
+                        "name": "3",
+                        "port_number": 3,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 52,
+                        "name": "4",
+                        "port_number": 4,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 53,
+                        "name": "5",
+                        "port_number": 5,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 54,
+                        "name": "6",
+                        "port_number": 6,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 55,
+                        "name": "7",
+                        "port_number": 7,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 56,
+                        "name": "8",
+                        "port_number": 8,
+                        "type": "access",
+                        "vlan": 1
+                    }
+                ],
+                "properties": {
+                    "name": "netM2"
+                },
+                "server_id": 1,
+                "type": "EthernetSwitch",
+                "x": -394.7102448427661,
+                "y": -246.51681066681448
+            },
+            {
+                "description": "Ethernet switch",
+                "device_id": "40f05150-3e83-4abe-b0fb-dfac8b844710",
+                "id": 13,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "netM1",
+                    "x": 15.4375,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "description": "connected to Madrid on port FastEthernet1/0",
+                        "id": 57,
+                        "link_id": 13,
+                        "name": "1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 58,
+                        "name": "2",
+                        "port_number": 2,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 59,
+                        "name": "3",
+                        "port_number": 3,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 60,
+                        "name": "4",
+                        "port_number": 4,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 61,
+                        "name": "5",
+                        "port_number": 5,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 62,
+                        "name": "6",
+                        "port_number": 6,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 63,
+                        "name": "7",
+                        "port_number": 7,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 64,
+                        "name": "8",
+                        "port_number": 8,
+                        "type": "access",
+                        "vlan": 1
+                    }
+                ],
+                "properties": {
+                    "name": "netM1"
+                },
+                "server_id": 1,
+                "type": "EthernetSwitch",
+                "x": -400.3670990922585,
+                "y": -188.53405460951763
+            },
+            {
+                "description": "Ethernet switch",
+                "device_id": "bdcf9c72-430f-4711-8da6-bf48106c9c6f",
+                "id": 14,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "netL1",
+                    "x": 17.0625,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "description": "connected to Lisboa1 on port FastEthernet1/0",
+                        "id": 65,
+                        "link_id": 15,
+                        "name": "1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 66,
+                        "name": "2",
+                        "port_number": 2,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 67,
+                        "name": "3",
+                        "port_number": 3,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 68,
+                        "name": "4",
+                        "port_number": 4,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 69,
+                        "name": "5",
+                        "port_number": 5,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 70,
+                        "name": "6",
+                        "port_number": 6,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 71,
+                        "name": "7",
+                        "port_number": 7,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 72,
+                        "name": "8",
+                        "port_number": 8,
+                        "type": "access",
+                        "vlan": 1
+                    }
+                ],
+                "properties": {
+                    "name": "netL1"
+                },
+                "server_id": 1,
+                "type": "EthernetSwitch",
+                "x": -396.1244584051393,
+                "y": -76.81118318204307
+            },
+            {
+                "description": "Ethernet switch",
+                "device_id": "b604e592-e635-42e7-b197-2bfc65791ea4",
+                "id": 15,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "Internet Core",
+                    "x": -2.46875,
+                    "y": -25.0
+                },
+                "ports": [
+                    {
+                        "description": "connected to Madrid on port FastEthernet2/1",
+                        "id": 73,
+                        "link_id": 19,
+                        "name": "1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "description": "connected to Lisboa1 on port FastEthernet2/0",
+                        "id": 74,
+                        "link_id": 17,
+                        "name": "2",
+                        "nio": "NIO_UDP",
+                        "port_number": 2,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 75,
+                        "name": "3",
+                        "port_number": 3,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 76,
+                        "name": "4",
+                        "port_number": 4,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 77,
+                        "name": "5",
+                        "port_number": 5,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 78,
+                        "name": "6",
+                        "port_number": 6,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 79,
+                        "name": "7",
+                        "port_number": 7,
+                        "type": "access",
+                        "vlan": 1
+                    },
+                    {
+                        "id": 80,
+                        "name": "8",
+                        "port_number": 8,
+                        "type": "access",
+                        "vlan": 1
+                    }
+                ],
+                "properties": {
+                    "name": "Internet Core"
+                },
+                "server_id": 1,
+                "type": "EthernetSwitch",
+                "x": -348.0411972844541,
+                "y": -365.31074990615446
+            }
+        ],
+        "rectangles": [
+            {
+                "border_color": "#753d9e",
+                "border_transparency": 158,
+                "color": "#ecacff",
+                "height": 131.52186130069785,
+                "transparency": 0,
+                "width": 246.0731598529185,
+                "x": -451.1341263970173,
+                "y": -282.842712474619
+            },
+            {
+                "border_color": "#c29240",
+                "color": "#ffffff",
+                "height": 125.86500705120545,
+                "transparency": 0,
+                "width": 244.6589462905454,
+                "x": -451.1341263970172,
+                "y": -100.40916292848974
+            },
+            {
+                "border_color": "#ecfe00",
+                "color": "#ffffff",
+                "height": 568.5138520739841,
+                "transparency": 0,
+                "width": 526.0874452027913,
+                "x": -57.982756057296854,
+                "y": -342.239682094289
+            }
+        ],
+        "servers": [
+            {
+                "host": "127.0.0.1",
+                "id": 1,
+                "local": true,
+                "port": 3080,
+                "protocol": "http",
+                "vm": false
+            }
+        ]
+    },
+    "type": "topology",
+    "version": "1.5.3"
+}
