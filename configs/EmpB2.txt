@@ -1,0 +1,20 @@
+Conf t
+
+int loopback0
+ip add 10.0.16.7 255.255.255.255
+ip ospf 1 area 0
+no shut
+
+
+int f0/0
+ip add 192.100.1.18 255.255.255.252
+no shut
+ip ospf 1 area 0
+
+int f0/1
+ip add 111.1.1.129 255.255.255.128
+no shut
+ip ospf 1 area 0
+
+End
+Write

@@ -1,0 +1,28 @@
+Conf t
+
+!Loopback
+int loopback0
+ip add 10.10.10.4 255.255.255.255
+no shut
+
+
+!Lisboa2 link
+int f0/0
+ip add 192.100.1.4 255.255.255.252
+no shut
+
+
+!Emp A2 link
+int f0/1
+ip add 192.100.1.9 255.255.255.252
+no shut
+
+
+!Emp B2 link
+int f1/0
+ip add 192.100.1.11 255.255.255.0
+no shut
+
+
+End
+Write

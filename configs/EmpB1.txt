@@ -1,0 +1,17 @@
+conf t
+
+
+int f0/0
+ip add 192.100.1.14 255.255.255.252
+no shut
+ip ospf 1 area 0
+
+
+int f0/1
+ip add 111.1.1.1 255.255.255.128
+no shut
+ip ospf 1 area 0
+
+
+End
+Write

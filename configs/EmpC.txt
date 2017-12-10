@@ -1,0 +1,12 @@
+Conf t
+
+
+!Porto link
+int f0/0
+ip add 192.100.1.2 255.255.255.252
+no shut
+
+!falta rede f0/1
+
+End
+Write

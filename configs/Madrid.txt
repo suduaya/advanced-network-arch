@@ -1,0 +1,23 @@
+Conf t
+
+
+!Lisboa1 link
+int f0/0
+ip add 4.4.4.5 255.255.255.252
+no shut
+
+
+!Lisboa2 link
+int f0/1
+ip add 4.4.4.3 255.255.255.252
+no shut
+
+
+!Porto link
+int f1/0
+ip add 4.4.4.1 255.255.255.252
+no shut
+
+
+End
+Write
