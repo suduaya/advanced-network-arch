@@ -8,13 +8,13 @@ no shut
 
 !Lisboa1 link
 int f0/0
-ip add 4.4.4.8 255.255.255.252
+ip add 4.4.4.14 255.255.255.252
 no shut
 
 
 !Madrid link
 int f0/1
-ip add 4.4.4.4 255.255.255.252
+ip add 4.4.4.6 255.255.255.252
 no shut
 
 
@@ -34,8 +34,8 @@ no shut
 router bgp 1000
 address-family ipv4 unicast
 
-neighbor 4.4.4.3 remote-as 20000 	!eBGP Neighboring with Madrid
-neighbor 4.4.4.7 remote-as 20000 	!eBGP Neighboring with Lisboa1
+neighbor 4.4.4.5 remote-as 20000 	!eBGP Neighboring with Madrid
+neighbor 4.4.4.13 remote-as 40000 	!eBGP Neighboring with Lisboa1
 
 
 neighbor 10.10.10.2 remote-as 1000 ! Aveiro

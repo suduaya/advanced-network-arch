@@ -3,21 +3,21 @@ Conf t
 
 !Lisboa2 link
 int f0/0
-ip add 4.4.4.7 255.255.255.252
+ip add 4.4.4.13 255.255.255.252
 no shut
 
 
 !Madrid link
 int f0/1
-ip add 4.4.4.6 255.255.255.252
+ip add 4.4.4.10 255.255.255.252
 no shut
 
 !BGP configs
 router bgp 40000		!my AS
 address-family ipv4 unicast	!ipv4
 
-neighbor 4.4.4.5 remote-as 20000 !eBGP Neighboring with Madrid
-neighbor 4.4.4.8 remote-as 1000  !eBGP Neighboring with Lisboa2
+neighbor 4.4.4.9 remote-as 20000 !eBGP Neighboring with Madrid
+neighbor 4.4.4.14 remote-as 1000  !eBGP Neighboring with Lisboa2
 
 End
 Write
