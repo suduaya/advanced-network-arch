@@ -1,9 +1,15 @@
 Conf t
+mpls traffic-eng tunnels
+ip cef
+No mpls ip
 
 !Loopback
 int loopback0
 ip ospf 1 area 0
 ip add 10.10.10.2 255.255.255.255
+mpls traffic-eng tunnels
+ip rsvp bandwidth 4096 4096
+No mpls ip
 no shut
 
 
@@ -11,6 +17,9 @@ no shut
 int f0/0
 ip ospf 1 area 0
 ip add 10.0.0.2 255.255.255.0
+mpls traffic-eng tunnels
+ip rsvp bandwidth 4096 4096
+No mpls ip
 no shut
 
 
@@ -25,6 +34,9 @@ no shut
 int f1/0
 ip ospf 1 area 0
 ip add 192.100.1.13 255.255.255.252
+mpls traffic-eng tunnels
+ip rsvp bandwidth 4096 4096
+No mpls ip
 no shut
 
 !BGP configs
@@ -45,8 +57,12 @@ neighbor 10.10.10.4 update-source Loopback 0
 
 network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
 
-!aggregate-address 192.100.1.0 255.255.255.0 summary-only
-
-
 End
-Write
+
+! OSPF MPLS
+conf t
+router ospf 1
+mpls traffic-eng area 0
+mpls traffic-eng router-id Loopback 0
+end
+
