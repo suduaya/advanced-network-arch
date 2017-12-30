@@ -1,7 +1,7 @@
 Conf t
 mpls traffic-eng tunnels
 ip cef
-No mpls ip
+mpls ip
 
 !Loopback
 int loopback0
@@ -9,7 +9,7 @@ ip ospf 1 area 0
 ip add 10.10.10.2 255.255.255.255
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
-No mpls ip
+mpls ip
 no shut
 
 
@@ -19,7 +19,7 @@ ip ospf 1 area 0
 ip add 10.0.0.2 255.255.255.0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
-No mpls ip
+mpls ip
 no shut
 
 
@@ -36,7 +36,7 @@ ip ospf 1 area 0
 ip add 192.100.1.13 255.255.255.252
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
-No mpls ip
+mpls ip
 no shut
 
 !BGP configs
@@ -66,3 +66,25 @@ mpls traffic-eng area 0
 mpls traffic-eng router-id Loopback 0
 end
 
+
+! MPLS VPN EmpA1
+conf t
+ip vrf VPN-1
+rd 1000:1
+route-target export 1000:1
+route-target import 1000:1
+int f0/1
+ip vrf forwarding VPN-1
+ip add 192.100.1.9 255.255.255.252
+no shut
+router bgp 1000
+address-family vpnv4
+neighbor 10.10.10.4 activate
+neighbor 10.10.10.4 send-community both
+exit
+address-family ipv4 vrf VPN-1
+redistribute connected
+redistribute static 
+end
+
+Write

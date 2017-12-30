@@ -1,7 +1,7 @@
 Conf t
 mpls traffic-eng tunnels
 ip cef
-No mpls ip
+mpls ip
 
 !Loopback
 int loopback0
@@ -28,7 +28,7 @@ ip add 10.0.0.3 255.255.255.0
 ip ospf 1 area 0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
-No mpls ip
+mpls ip
 no shut
 
 
@@ -38,7 +38,7 @@ ip add 192.100.1.5 255.255.255.252
 ip ospf 1 area 0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
-No mpls ip
+mpls ip
 no shut
 
 
