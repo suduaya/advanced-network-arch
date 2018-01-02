@@ -18,6 +18,16 @@ int f1/0
 ip add 4.4.4.1 255.255.255.252
 no shut
 
+!M1
+int f2/0
+ip add 200.100.1.1 255.255.255.0
+no shut
+
+!M2
+int f2/1
+ip add 200.200.1.1 255.255.255.0
+no shut
+
 
 !BGP configs
 router bgp 20000		!my AS
@@ -31,7 +41,12 @@ neighbor 4.4.4.10 default-originate ! remote-as 40000 !eBGP Neighboring with Lis
 neighbor 4.4.4.6 default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
 neighbor 4.4.4.2 default-originate ! remote-as 1000 !eBGP Neighboring with Porto
 
+network 200.100.1.0 mask 255.255.255.0	!M1
+network 200.200.1.0 mask 255.255.255.0	!M2
 
+ip route 0.0.0.0 0.0.0.0 4.0.0.6
+ip route 0.0.0.0 0.0.0.0 4.0.0.10
+ip route 0.0.0.0 0.0.0.0 4.0.0.2
 
 End
 Write

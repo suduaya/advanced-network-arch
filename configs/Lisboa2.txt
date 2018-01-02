@@ -76,4 +76,18 @@ mpls traffic-eng area 0
 mpls traffic-eng router-id Loopback 0
 end
 
+
+
+!non-transit AS
+conf t
+ip as-path access-list 1 permit ^$
+route-map non-transit 
+match as-path 1 
+
+router bgp 1000
+address-family ipv4 unicast
+neighbor 4.4.4.13 route-map non-transit out
+neighbor 4.4.4.5 route-map non-transit out
+
+End
 Write

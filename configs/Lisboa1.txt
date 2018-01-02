@@ -12,6 +12,12 @@ int f0/1
 ip add 4.4.4.10 255.255.255.252
 no shut
 
+!L1
+int f1/0
+ip add 65.0.1.1 255.255.255.0
+no shut
+
+
 !BGP configs
 router bgp 40000		!my AS
 address-family ipv4 unicast	!ipv4
@@ -22,5 +28,12 @@ neighbor 4.4.4.14 remote-as 1000  !eBGP Neighboring with Lisboa2
 neighbor 4.4.4.9 default-originate ! remote-as 20000 !eBGP Neighboring with Madrid
 neighbor 4.4.4.14 default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
 
+network 65.0.1.0 mask 255.255.255.0 !L1
+
+
+ip route 0.0.0.0 0.0.0.0 4.0.0.8
+ip route 0.0.0.0 0.0.0.0 4.0.0.9
+
 End
+
 Write

@@ -57,4 +57,19 @@ network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
 
 
 End
+
+!non-transit AS
+conf t
+ip as-path access-list 1 permit ^$ 
+ip as-path access-list 1 permit _65400_
+route-map non-transit 
+match as-path 1 
+
+router bgp 1000
+address-family ipv4 unicast
+neighbor 4.4.4.1 route-map non-transit out 
+
+
+end
+
 Write
