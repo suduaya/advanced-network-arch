@@ -18,6 +18,11 @@ int f1/0
 ip add 4.4.4.1 255.255.255.252
 no shut
 
+!INTERNET link
+int f1/1
+ip add 2.2.2.2 255.255.255.128
+no shut
+
 !M1
 int f2/0
 ip add 200.100.1.1 255.255.255.0

@@ -2,8 +2,8 @@ Conf t
 
 !Loopback
 int loopback0
-ip ospf 1 area 0
 ip add 10.10.10.1 255.255.255.255
+ip ospf 1 area 0
 no shut
 
 
@@ -15,15 +15,15 @@ no shut
 
 !Core link
 int f0/1
-ip ospf 1 area 0
 ip add 10.0.0.1 255.255.255.0
+ip ospf 1 area 0
 no shut
 
 
 !EmpC link
 int f1/0
-ip ospf 1 area 0
 ip add 192.100.1.1 255.255.255.252
+ip ospf 1 area 0
 no shut
 
 End
@@ -31,14 +31,13 @@ End
 ! BGP CONFIGS
 conf t
 router bgp 1000
-No bgp default local-preference 200
-bgp default local-preference 100
+No bgp default local-preference 100
 
 address-family ipv4 unicast
 No redistribute ospf 1 
 
 neighbor 4.4.4.1 remote-as 20000 !eBGP Neighboring with Madrid
-!neighbor empty remote-as 65300 !eBGP Neighboring with EmpC
+!neighbor empty remote-as 65400 !eBGP Neighboring with EmpC
 
 
 neighbor 10.10.10.2 remote-as 1000 ! Aveiro
@@ -61,7 +60,7 @@ End
 !non-transit AS
 conf t
 ip as-path access-list 1 permit ^$ 
-ip as-path access-list 1 permit _65400_
+ip as-path access-list 1 permit ^65400$
 route-map non-transit 
 match as-path 1 
 
@@ -72,4 +71,22 @@ neighbor 4.4.4.1 route-map non-transit out
 
 end
 
+! Deny London traffic link to SIP
+conf t
+ip prefix-list deny-londonv4 seq 5 deny 65.0.1.0/24
+ip prefix-list deny-londonv4 seq 100 permit 0.0.0.0/0 le 32
+router bgp 1000
+address-family ipv4 unicast
+neighbor 4.4.4.1 prefix-list deny-londonv4 in
+end
+
+! OSPF redistribute
+conf t
+router ospf 1
+distance 220
+No redistribute static subnets
+end
+
+
 Write
+

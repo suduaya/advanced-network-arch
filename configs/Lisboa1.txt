@@ -17,6 +17,11 @@ int f1/0
 ip add 65.0.1.1 255.255.255.0
 no shut
 
+!INTERNET
+int f1/1
+ip add 2.2.2.3 255.255.255.128
+no shut
+
 
 !BGP configs
 router bgp 40000		!my AS
@@ -30,9 +35,9 @@ neighbor 4.4.4.14 default-originate ! remote-as 1000 !eBGP Neighboring with Lisb
 
 network 65.0.1.0 mask 255.255.255.0 !L1
 
+ip route 0.0.0.0 0.0.0.0 4.4.4.9
+ip route 0.0.0.0 0.0.0.0 4.4.4.14
 
-ip route 0.0.0.0 0.0.0.0 4.0.0.8
-ip route 0.0.0.0 0.0.0.0 4.0.0.9
 
 End
 

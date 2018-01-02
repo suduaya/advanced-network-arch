@@ -54,22 +54,11 @@ neighbor 10.10.10.2 remote-as 1000 ! Aveiro
 neighbor 10.10.10.2 next-hop-self
 neighbor 10.10.10.2 update-source Loopback 0
 
-network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
-
-!aggregate-address 192.100.1.0 255.255.255.0 summary-only
+network 192.100.1.4 mask 255.255.255.252 ! Ethernet core
 
 End
 
-! OSPF MPLS
-conf t
-router ospf 1
-mpls traffic-eng area 0
-mpls traffic-eng router-id Loopback 0
-end
-
-
 ! MPLS VPN EmpA2
-
 conf t
 ip vrf VPN-1
 rd 1000:1
@@ -89,5 +78,18 @@ redistribute connected
 redistribute static 
 end
 
+! OSPF MPLS
+conf t
+router ospf 1
+No redistribute static subnets
+mpls traffic-eng area 0
+mpls traffic-eng router-id Loopback 0
+end
+
+!M2 M1 networks - Lisboa2
+Conf ter
+ip route 200.200.1.0 255.255.255.0 10.0.0.3
+ip route 200.100.1.0 255.255.255.0 10.0.0.3
+End
 
 Write

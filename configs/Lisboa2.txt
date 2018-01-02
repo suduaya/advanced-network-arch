@@ -1,3 +1,4 @@
+
 Conf t
 mpls traffic-eng tunnels
 ip cef
@@ -45,7 +46,7 @@ End
 !BGP configs
 conf t
 router bgp 1000
-bgp default local-preference 200
+No bgp default local-preference 100
 address-family ipv4 unicast
 No redistribute ospf 1
  
@@ -68,14 +69,16 @@ neighbor 10.10.10.4 update-source Loopback 0
 network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
 
 
+
 End
 ! OSPF MPLS
 conf t
 router ospf 1
+Distance 220
+No redistribute static subnets
 mpls traffic-eng area 0
 mpls traffic-eng router-id Loopback 0
 end
-
 
 
 !non-transit AS
@@ -90,4 +93,44 @@ neighbor 4.4.4.13 route-map non-transit out
 neighbor 4.4.4.5 route-map non-transit out
 
 End
+
+!tentativa
+conf t
+ip access-list standard fOut-priv-default
+10 deny 10.0.0.0 0.0.255.255
+100 permit any
+router bgp 1000
+address-family ipv4 unicast
+neighbor 4.4.4.5 distribute-list fOut-priv-default out
+neighbor 4.4.4.13 distribute-list fOut-priv-default out
+end
+
+!L2&L3 traffic
+conf t
+no ip prefix-list PL-L2-TRAFFIC seq 10 permit 200.200.1.0/24
+ip prefix-list PL-L2-TRAFFIC seq 10 permit 0.0.0.0/0
+No ip prefix-list PL-L2-TRAFFIC seq 10 permit 2.2.2.0/24
+ip access-list standard ACL-PERMIT-ALL
+100 permit any
+!Oeiras
+route-map RM-L2-TRAFFIC-O permit 10
+match ip address prefix-list PL-L2-TRAFFIC
+no set local-preference 400
+set local-preference 200
+exit
+!Aveiro
+route-map RM-L2-TRAFFIC-A permit 10
+match ip address prefix-list PL-L2-TRAFFIC
+No set local-preference 200
+set local-preference 400
+exit
+
+router bgp 1000
+address-family ipv4 unicast
+neighbor 10.10.10.4 route-map RM-L2-TRAFFIC-O out
+neighbor 10.10.10.2 route-map RM-L2-TRAFFIC-A out
+end
+
+
+
 Write
