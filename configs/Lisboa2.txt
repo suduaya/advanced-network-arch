@@ -80,6 +80,19 @@ mpls traffic-eng area 0
 mpls traffic-eng router-id Loopback 0
 end
 
+! deny private networks e default routes
+conf t
+ip access-list standard fOut-priv-default
+10 deny 10.0.0.0 0.0.255.255
+11 deny 192.100.1.0 0.0.0.4
+16 deny 0.0.0.0 0.0.0.0
+100 permit any
+router bgp 1000
+address-family ipv4 unicast
+neighbor 4.4.4.5 distribute-list fOut-priv-default out
+neighbor 4.4.4.13 distribute-list fOut-priv-default out
+end
+
 
 !non-transit AS
 conf t
@@ -107,21 +120,17 @@ end
 
 !L2&L3 traffic
 conf t
-no ip prefix-list PL-L2-TRAFFIC seq 10 permit 200.200.1.0/24
 ip prefix-list PL-L2-TRAFFIC seq 10 permit 0.0.0.0/0
-No ip prefix-list PL-L2-TRAFFIC seq 10 permit 2.2.2.0/24
 ip access-list standard ACL-PERMIT-ALL
 100 permit any
 !Oeiras
 route-map RM-L2-TRAFFIC-O permit 10
 match ip address prefix-list PL-L2-TRAFFIC
-no set local-preference 400
 set local-preference 200
 exit
 !Aveiro
 route-map RM-L2-TRAFFIC-A permit 10
 match ip address prefix-list PL-L2-TRAFFIC
-No set local-preference 200
 set local-preference 400
 exit
 
