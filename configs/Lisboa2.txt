@@ -40,12 +40,15 @@ mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
 mpls ip
 no shut
-
+End
 
 !BGP configs
+conf t
 router bgp 1000
+bgp default local-preference 200
 address-family ipv4 unicast
-
+No redistribute ospf 1
+ 
 neighbor 4.4.4.5 remote-as 20000 	!eBGP Neighboring with Madrid
 neighbor 4.4.4.13 remote-as 40000 	!eBGP Neighboring with Lisboa1
 

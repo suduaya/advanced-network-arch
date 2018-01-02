@@ -19,5 +19,8 @@ address-family ipv4 unicast	!ipv4
 neighbor 4.4.4.9 remote-as 20000 !eBGP Neighboring with Madrid
 neighbor 4.4.4.14 remote-as 1000  !eBGP Neighboring with Lisboa2
 
+neighbor 4.4.4.9 default-originate ! remote-as 20000 !eBGP Neighboring with Madrid
+neighbor 4.4.4.14 default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
+
 End
 Write

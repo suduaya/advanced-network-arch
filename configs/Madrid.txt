@@ -27,6 +27,11 @@ neighbor 4.4.4.10 remote-as 40000 !eBGP Neighboring with Lisboa1
 neighbor 4.4.4.6 remote-as 1000  !eBGP Neighboring with Lisboa2
 neighbor 4.4.4.2 remote-as 1000  !eBGP Neighboring with Porto
 
+neighbor 4.4.4.10 default-originate ! remote-as 40000 !eBGP Neighboring with Lisboa1
+neighbor 4.4.4.6 default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
+neighbor 4.4.4.2 default-originate ! remote-as 1000 !eBGP Neighboring with Porto
+
+
 
 End
 Write

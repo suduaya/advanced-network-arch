@@ -26,12 +26,19 @@ ip ospf 1 area 0
 ip add 192.100.1.1 255.255.255.252
 no shut
 
+End
 
-!BGP configs
+! BGP CONFIGS
+conf t
 router bgp 1000
-address-family ipv4 unicast
+No bgp default local-preference 200
+bgp default local-preference 100
 
-neighbor 4.4.4.1 remote-as 20000 	!eBGP Neighboring with Madrid
+address-family ipv4 unicast
+No redistribute ospf 1 
+
+neighbor 4.4.4.1 remote-as 20000 !eBGP Neighboring with Madrid
+!neighbor empty remote-as 65300 !eBGP Neighboring with EmpC
 
 
 neighbor 10.10.10.2 remote-as 1000 ! Aveiro
@@ -47,8 +54,6 @@ neighbor 10.10.10.4 next-hop-self
 neighbor 10.10.10.4 update-source Loopback 0
 
 network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
-
-!aggregate-address 192.100.1.0 255.255.255.0 summary-only
 
 
 End
