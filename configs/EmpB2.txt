@@ -6,22 +6,28 @@ No mpls ip
 
 int loopback0
 ip add 10.10.10.7 255.255.255.255
+ipv6 add 2001:100:1:3::7/48
 ip ospf 1 area 0
+ipv6 ospf 1 area 0
 no shut
 
 
 int f0/0
 ip add 192.100.1.22 255.255.255.252
+ipv6 add 2001:100:1:2::22/48
 no shut
 ip ospf 1 area 0
+ipv6 ospf 1 area 0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
 No mpls ip
 
 int f0/1
 ip add 111.1.1.129 255.255.255.128
+ipv6 add 3001:111:1::2/48
 no shut
 ip ospf 1 area 0
+ipv6 ospf 1 area 0
 
 End
 

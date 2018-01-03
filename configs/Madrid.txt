@@ -4,38 +4,59 @@ Conf t
 !Lisboa1 link
 int f0/0
 ip add 4.4.4.9 255.255.255.252
+ipv6 add 2001:4:4:1::9/48
 no shut
 
 
 !Lisboa2 link
 int f0/1
 ip add 4.4.4.5 255.255.255.252
+ipv6 add 2001:4:4:1::5/48
 no shut
 
 
 !Porto link
 int f1/0
 ip add 4.4.4.1 255.255.255.252
+ipv6 add 2001:4:4:1::1/48
 no shut
 
 !INTERNET link
 int f1/1
 ip add 2.2.2.2 255.255.255.128
+ipv6 add 2001:2:2:1::2/64
 no shut
 
 !M1
 int f2/0
 ip add 200.100.1.1 255.255.255.0
+ipv6 add 2201:200:100:1::1/48
 no shut
 
 !M2
 int f2/1
 ip add 200.200.1.1 255.255.255.0
+ipv6 add 2201:200:200:1::1/48
 no shut
 
 
 !BGP configs
 router bgp 20000		!my AS
+no bgp default ipv4-unicast
+
+address-family ipv6 unicast !ipv6
+
+neighbor 2001:4:4:1::A remote-as 40000 !eBGP Neighboring with Lisboa1
+neighbor 2001:4:4:1::6 remote-as 1000 !eBGP Neighboring with Lisboa2
+neighbor 2001:4:4:1::2 remote-as 1000 !eBGP Neighboring with Porto
+
+neighbor 2001:4:4:1::A default-originate ! remote-as 40000 !eBGP Neighboring with Lisboa1
+neighbor 2001:4:4:1::6 default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
+neighbor 2001:4:4:1::2 default-originate ! remote-as 1000 !eBGP Neighboring with Porto
+
+network 2201:200:100:1/48	!M1
+network 2201:200:200:1/48	!M2
+
 address-family ipv4 unicast	!ipv4
 
 neighbor 4.4.4.10 remote-as 40000 !eBGP Neighboring with Lisboa1
@@ -52,6 +73,10 @@ network 200.200.1.0 mask 255.255.255.0	!M2
 ip route 0.0.0.0 0.0.0.0 4.0.0.6
 ip route 0.0.0.0 0.0.0.0 4.0.0.10
 ip route 0.0.0.0 0.0.0.0 4.0.0.2
+
+ipv6 route ::/0 2001:4:4:1::A
+ipv6 route ::/0 2001:4:4:1::6
+ipv6 route ::/0 2001:4:4:1::2
 
 End
 Write

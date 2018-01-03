@@ -2,13 +2,17 @@ Conf t
 
 int f0/0
 ip add 192.100.1.18 255.255.255.252
+ipv6 add 2001:100:1:2::F2/48
 no shut
 ip ospf 1 area 0
+ipv6 ospf 1 area 0
 
 int f0/1
 ip add 110.1.1.129 255.255.255.128
+ipv6 add 3001:110:1::2/48
 no shut
 ip ospf 1 area 0
+ipv6 ospf 1 area 0
 
 
 end

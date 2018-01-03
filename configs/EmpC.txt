@@ -4,9 +4,14 @@ Conf t
 !Porto link
 int f0/0
 ip add 192.100.1.2 255.255.255.252
+ipv6 add 2001:100:1:2::2/48
 no shut
 
 !falta rede f0/1
+int f0/1
+ip add 112.1.1.10 255.255.255.0
+ipv6 add 3001:112:1::10/48
+no shut
 
 End
 Write
