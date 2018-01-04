@@ -4,20 +4,20 @@ Conf t
 !Lisboa2 link
 int f0/0
 ip add 4.4.4.13 255.255.255.252
-ipv6 add 2001:4:4:1::D/48
+ipv6 add 2001:4:4:1::D/64
 no shut
 
 
 !Madrid link
 int f0/1
 ip add 4.4.4.10 255.255.255.252
-ipv6 add 2001:4:4:1::A/48
+ipv6 add 2001:4:4:1::A/64
 no shut
 
 !L1
 int f1/0
 ip add 65.0.1.1 255.255.255.0
-ipv6 add 2301:65:0:1::1/48
+ipv6 add 2301:65:0:1::1/64
 no shut
 
 !INTERNET
