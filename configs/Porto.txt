@@ -37,8 +37,7 @@ address-family ipv4 unicast
 redistribute ospf 1 
 
 neighbor 4.4.4.1 remote-as 20000 !eBGP Neighboring with Madrid
-!neighbor empty remote-as 65400 !eBGP Neighboring with EmpC
-
+neighbor 192.100.1.2 remote-as 65400 !eBGP Neighboring with EmpC
 
 neighbor 10.10.10.2 remote-as 1000 ! Aveiro
 neighbor 10.10.10.2 next-hop-self
