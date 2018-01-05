@@ -1,33 +1,26 @@
 Conf t
 mpls traffic-eng tunnels
 ip cef
-No mpls ip
 
 
 int loopback0
 ip add 10.10.10.7 255.255.255.255
-ipv6 add 2001:100:1:3::7/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 no shut
 
 
 int f0/0
 ip add 192.100.1.22 255.255.255.252
-ipv6 add 2001:100:1:2::22/64
 no shut
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
-No mpls ip
+
 
 int f0/1
 ip add 111.1.1.129 255.255.255.128
-ipv6 add 3001:111:1::2/64
 no shut
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 
 End
 
@@ -38,7 +31,7 @@ interface tunnel1
 ip unnumbered Loopback0
 tunnel destination 10.10.10.2
 tunnel mode mpls traffic-eng
-tunnel mpls traffic-eng bandwidth 2048 
+tunnel mpls traffic-eng bandwidth 20480 
 tunnel mpls traffic-eng path-option 1 dynamic
 end
 
@@ -48,7 +41,7 @@ interface tunnel2
 ip unnumbered Loopback0
 tunnel destination 10.10.10.6
 tunnel mode mpls traffic-eng
-tunnel mpls traffic-eng bandwidth 2048 
+tunnel mpls traffic-eng bandwidth 20480 
 tunnel mpls traffic-eng path-option 1 dynamic
 end
 

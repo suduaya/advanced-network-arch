@@ -44,7 +44,7 @@ view "other" {
 
 Criar os ficheiros /etc/bind/aracdn.com-aveiro.db, /etc/bind/aracdn.com-oeiras.db e /etc/bind/aracdn.com-other.db :
 
-AVEIRO (192.1.1.1 é o servidor destino, 192.1.1.100 é o DNS Server):
+AVEIRO (10.2.1.1 é o servidor destino, 10.2.2.2 é o DNS Server):
 
 $TTL    604800 
 $ORIGIN aracdn.com. 
@@ -55,8 +55,8 @@ $ORIGIN aracdn.com.
                           2419200                   ; Expire 
                            604800 )                 ; Negative Cache TTL 
         IN       NS     ns1.aracdn.com. 
-        IN       A      192.1.1.1
-ns1     IN       A      192.1.1.100 
+        IN       A      10.2.1.1
+ns1     IN       A      10.2.2.2 
 
 
 OEIRAS:

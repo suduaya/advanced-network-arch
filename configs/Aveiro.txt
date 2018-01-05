@@ -1,4 +1,5 @@
 Conf t
+
 mpls traffic-eng tunnels
 ip cef
 mpls ip
@@ -6,21 +7,14 @@ mpls ip
 !Loopback
 int loopback0
 ip add 10.10.10.2 255.255.255.255
-ipv6 add 2001:100:1:3::2/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
-mpls traffic-eng tunnels
-ip rsvp bandwidth 4096 4096
-mpls ip
 no shut
 
 
 !Core link
 int f0/0
 ip add 10.0.0.2 255.255.255.0
-ipv6 add 2001:100:1:1::2/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
 mpls ip
@@ -30,18 +24,15 @@ no shut
 !EmpA1 link
 int f0/1
 ip add 192.100.1.9 255.255.255.252
-ipv6 add 2001:100:1:2::9/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
+mpls ip
 no shut
 
 
 !EmpB1 link
 int f1/0
 ip add 192.100.1.13 255.255.255.252
-ipv6 add 2001:100:1:2::D/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 mpls traffic-eng tunnels
 ip rsvp bandwidth 4096 4096
 mpls ip
@@ -49,8 +40,7 @@ no shut
 
 !BGP configs
 router bgp 1000
-no bgp default ipv4-unicast
-address-family ipv4
+address-family ipv4 unicast
 
 neighbor 10.10.10.1 remote-as 1000 ! Porto
 neighbor 10.10.10.1 next-hop-self
@@ -64,29 +54,14 @@ neighbor 10.10.10.4 remote-as 1000 ! Oeiras
 neighbor 10.10.10.4 next-hop-self
 neighbor 10.10.10.4 update-source Loopback 0
 
-network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
-
-address-family ipv6
-neighbor 2001:100:1:3::1 remote-as 1000 ! Porto
-neighbor 2001:100:1:3::1 next-hop-self
-neighbor 2001:100:1:3::1 update-source Loopback 0
-
-neighbor 2001:100:1:3::3 remote-as 1000 ! Lisboa2
-neighbor 2001:100:1:3::3 next-hop-self
-neighbor 2001:100:1:3::3 update-source Loopback 0
-
-neighbor 2001:100:1:3::4 remote-as 1000 ! Oeiras
-neighbor 2001:100:1:3::4 next-hop-self
-neighbor 2001:100:1:3::4 update-source Loopback 0
-
-network 2001:100:1:1:: ! Ethernet core
+!network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
 
 End
 
 ! OSPF MPLS
 conf t
 router ospf 1
-No redistribute static subnets
+redistribute static subnets
 mpls traffic-eng area 0
 mpls traffic-eng router-id Loopback 0
 end
@@ -101,29 +76,23 @@ route-target import 1000:1
 int f0/1
 ip vrf forwarding VPN-1
 ip add 192.100.1.9 255.255.255.252
-ipv6 add 2001:100:1:2::D/64
 no shut
 router bgp 1000
 address-family vpnv4
 neighbor 10.10.10.4 activate
 neighbor 10.10.10.4 send-community both
-exit
-address-family vpnv6
-neighbor 2001:100:1:3::4 activate
-neighbor 2001:100:1:3::4 send-community both
+Exit
 address-family ipv4 vrf VPN-1
 redistribute connected
 redistribute static
-address-family ipv6 vrf VPN-1
-redistribute connected
-redistribute static 
+Exit
+ip route vrf VPN-1 0.0.0.0 0.0.0.0 10.10.10.3 global
+ip route vrf VPN-1 110.1.1.0 255.255.255.128 f0/1 192.100.1.10
+ip route 110.1.1.0 255.255.255.128 f0/1 192.100.1.10
+ip route 192.100.1.8 255.255.255.252 f0/1
+router ospf 1
+redistribute static subnets
 end
-
-!M2 M1 networks - Porto
-Conf ter
-ip route 200.200.1.0 255.255.255.0 10.0.0.1
-ip route 200.100.1.0 255.255.255.0 10.0.0.1
-End
 
 
 Write

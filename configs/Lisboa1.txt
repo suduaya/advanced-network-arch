@@ -1,44 +1,33 @@
-Conf t
-
+conf t
+ip route 0.0.0.0 0.0.0.0 f1/1
 
 !Lisboa2 link
 int f0/0
 ip add 4.4.4.13 255.255.255.252
-ipv6 add 2001:4:4:1::D/64
 no shut
 
 
 !Madrid link
 int f0/1
 ip add 4.4.4.10 255.255.255.252
-ipv6 add 2001:4:4:1::A/64
 no shut
 
 !L1
 int f1/0
 ip add 65.0.1.1 255.255.255.0
-ipv6 add 2301:65:0:1::1/64
 no shut
 
 !INTERNET
 int f1/1
 ip add 2.2.2.3 255.255.255.128
-ipv6 add 2001:2:2::3/64
 no shut
 
+end
 
 !BGP configs
+conf t
+
 router bgp 40000		!my AS
-no bgp default ipv4-unicast
-address-family ipv6
-neighbor 2001:4:4:1::9 remote-as 20000 !eBGP Neighboring with Madrid
-neighbor 2001:4:4:1::E remote-as 1000 !eBGP Neighboring with Lisboa2
-
-neighbor 2001:4:4:1::9 default-originate ! remote-as 20000 !eBGP Neighboring with Madrid
-neighbor 2001:4:4:1::E default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
-
-network 2301:65:0:1/64 !L1
-
 address-family ipv4 unicast	!ipv4
 
 neighbor 4.4.4.9 remote-as 20000 !eBGP Neighboring with Madrid
@@ -47,14 +36,8 @@ neighbor 4.4.4.14 remote-as 1000  !eBGP Neighboring with Lisboa2
 neighbor 4.4.4.9 default-originate ! remote-as 20000 !eBGP Neighboring with Madrid
 neighbor 4.4.4.14 default-originate ! remote-as 1000 !eBGP Neighboring with Lisboa2
 
-network 65.0.1.0 mask 255.255.255.0 !L1
+network 65.0.1.0 mask 255.255.255.0 	!L1
+No network 2.2.2.0 mask 255.255.255.128	!internet
 
-ip route 0.0.0.0 0.0.0.0 4.4.4.9
-ip route 0.0.0.0 0.0.0.0 4.4.4.14
-ipv6 route ::/0 2001:4:4:1::9
-ipv6 route ::/0 2001:4:4:1::E
-
-
-End
-
-Write
+end
+write mem

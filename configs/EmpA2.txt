@@ -1,19 +1,28 @@
 Conf t
+Mpls ip
+
+
+
+!Loopback
+int loopback0
+ip add 10.10.10.8 255.255.255.255
+ip ospf 1 area 0
+no shut
 
 int f0/0
 ip add 192.100.1.18 255.255.255.252
-ipv6 add 2001:100:1:2::18/64
+Mpls ip
 no shut
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 
 int f0/1
 ip add 110.1.1.129 255.255.255.128
-ipv6 add 3001:110:1::2/64
 no shut
+Mpls ip
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 
 
+
+Ip route 0.0.0.0 0.0.0.0 192.100.1.17
 end
 write

@@ -1,17 +1,27 @@
-Conf t
+!EmpC
+conf t
+ipv6 unicast-routing
+router bgp 65300
+address-family ipv4 unicast
+neighbor 10.0.0.9 remote-as 9000
+network 140.1.1.0 mask 255.255.255.0
 
-
-!Porto link
+address-family ipv6 unicast
+neighbor 2001:200:8::9 remote-as 9000
+network 2001:140::/48
 int f0/0
-ip add 192.100.1.2 255.255.255.252
-ipv6 add 2001:100:1:2::2/64
+!BGP
+ip add 10.0.0.10 255.255.255.252
+ipv6 add 2001:200:8::10/64
+ipv6 enable
 no shut
-
-!falta rede f0/1
 int f0/1
-ip add 112.1.1.10 255.255.255.0
-ipv6 add 3001:112:1::10/64
+ip add 140.1.1.1 255.255.255.0
+ipv6 add 2001:140::1/64
+ipv6 enable
 no shut
-
-End
-Write
+int lo0
+ip add 10.0.32.3 255.255.255.255
+no shut
+end
+write mem

@@ -1,67 +1,40 @@
-Conf t
+
+!Porto
+conf t
 
 !Loopback
 int loopback0
 ip add 10.10.10.1 255.255.255.255
-ipv6 add 2001:100:1:3::1/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 no shut
 
 
 !Madrid link
 int f0/0
 ip add 4.4.4.2 255.255.255.252
-ipv6 add 2001:4:4:1::2/64
 no shut
 
 
 !Core link
 int f0/1
 ip add 10.0.0.1 255.255.255.0
-ipv6 add 2001:100:1:1::1/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 no shut
 
 
 !EmpC link
 int f1/0
 ip add 192.100.1.1 255.255.255.252
-ipv6 add 2001:100:1:2::1/64
 ip ospf 1 area 0
-ipv6 ospf 1 area 0
 no shut
-
 End
 
 ! BGP CONFIGS
 conf t
 router bgp 1000
-No bgp default local-preference 100
-no bgp default ipv4-unicast
-
-address-family ipv6 unicast
-no redistribute ospf 1
-
-neighbor 2001:4:4:1::1 remote-as 20000
-
-neighbor 2001:100:1:3::2 remote-as 1000
-neighbor 2001:100:1:3::2 next-hop-self
-neighbor 2001:100:1:3::2 update-source Loopback 0
-
-neighbor 2001:100:1:3::3 remote-as 1000
-neighbor 2001:100:1:3::3 next-hop-self
-neighbor 2001:100:1:3::3 update-source Loopback 0
-
-neighbor 2001:100:1:3::4 remote-as 1000
-neighbor 2001:100:1:3::4 next-hop-self
-neighbor 2001:100:1:3::4 update-source Loopback 0
-
-network 2001:100:1:1/64
 
 address-family ipv4 unicast
-No redistribute ospf 1 
+redistribute ospf 1 
 
 neighbor 4.4.4.1 remote-as 20000 !eBGP Neighboring with Madrid
 !neighbor empty remote-as 65400 !eBGP Neighboring with EmpC
@@ -79,54 +52,47 @@ neighbor 10.10.10.4 remote-as 1000 ! Oeiras
 neighbor 10.10.10.4 next-hop-self
 neighbor 10.10.10.4 update-source Loopback 0
 
-network 10.0.0.0 mask 255.255.255.0 ! Ethernet core
-
-
 End
 
-! deny private networks e default routes
+!OSPF redistribute
+conf t
+router bgp 1000
+redistribute ospf 1
+router ospf 1
+default-information originate always
+distance 220
+
+! BGP non transit ISP X
+conf t
+ip as-path access-list 1 permit ^$
+ip as-path access-list 1 permit _65400_
+route-map routes-out
+match as-path 1
+router bgp 1000
+address-family ipv4 unicast
+neighbor 4.4.4.1 route-map routes-out out
+end
+
+! deny private networks
 conf t
 ip access-list standard fOut-priv-default
-10 deny 10.0.0.0 0.0.255.255
-11 deny 192.100.1.0 0.0.0.4
-16 deny 0.0.0.0 0.0.0.0
+10 deny 192.100.0.0 0.0.255.255
 100 permit any
 router bgp 1000
 address-family ipv4 unicast
 neighbor 4.4.4.1 distribute-list fOut-priv-default out
+!neighbor 10.0.0.10 distribute-list fOut-priv-default out
 end
 
-
-!non-transit AS
+! Deny Sintra traffic from outer routers
 conf t
-ip as-path access-list 1 permit ^$ 
-ip as-path access-list 1 permit ^65400$
-route-map non-transit 
-match as-path 1 
-
+ip prefix-list PL-SINTRA seq 10 deny 65.0.1.0/24
+ip prefix-list PL-SINTRA seq 100 permit 0.0.0.0/0 le 32
 router bgp 1000
 address-family ipv4 unicast
-neighbor 4.4.4.1 route-map non-transit out 
-
+neighbor 4.4.4.1 prefix-list PL-SINTRA in
 
 end
 
-! Deny London traffic link to SIP
-conf t
-ip prefix-list deny-londonv4 seq 5 deny 65.0.1.0/24
-ip prefix-list deny-londonv4 seq 100 permit 0.0.0.0/0 le 32
-router bgp 1000
-address-family ipv4 unicast
-neighbor 4.4.4.1 prefix-list deny-londonv4 in
-end
 
-! OSPF redistribute
-conf t
-router ospf 1
-distance 220
-No redistribute static subnets
-end
-
-
-Write
-
+wr me
