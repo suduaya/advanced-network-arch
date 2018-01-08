@@ -26,3 +26,34 @@ ip ospf 1 area 0
 Ip route 0.0.0.0 0.0.0.0 192.100.1.17
 end
 write
+
+!IPv6
+
+Conf t
+ipv6 unicast-routing
+
+!Loopback
+int loopback0
+Ipv6 enable
+ipv6 add 2001:2001::7/128
+ipv6 ospf 1 area 0
+no shut
+
+int f0/0
+no shut 
+ipv6 enable
+ipv6 add 2001:100:5000::2/50
+ipv6 ospf 1 area 0
+
+int f0/1
+no shut 
+ipv6 enable
+ipv6 add 3001:110:1::1/48
+ipv6 ospf 1 area 0
+
+
+!rota
+ipv6 route ::/0 2001:100:5000::1
+
+end
+write

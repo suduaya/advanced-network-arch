@@ -1,3 +1,8 @@
+IP CDN Server:
+    sudo ifconfig eth0 10.2.2.2 netmask 255.255.255.0
+    sudo route add default gw 
+
+
 ir a "/etc/bind/named.conf" e alterar a configuração BIND:
 
 comentar: 

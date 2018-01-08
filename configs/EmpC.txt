@@ -3,12 +3,10 @@ conf t
 
 int f0/0
 ip add 192.100.1.2 255.255.255.252
-!falta ipv6
 no shut
 
 int f0/1
 ip add 112.1.1.1 255.255.255.0
-!falta ipv6
 no shut
 
 ipv6 unicast-routing
@@ -17,12 +15,44 @@ address-family ipv4 unicast
 neighbor 192.100.1.1 remote-as 1000
 network 112.1.1.0 mask 255.255.255.0
 
-! falta ipv6
-!address-family ipv6 unicast
-!neighbor 2001:200:8::9 remote-as 9000
-!network 2001:140::/48
-
 end
 write
 
+!IPv6
 
+Conf t
+ipv6 unicast-routing
+
+!Loopback
+int loopback0
+Ipv6 enable
+ipv6 add 2001:2001::9/128
+no shut
+
+int f0/0
+no shut 
+ipv6 enable
+ipv6 add 2001:100:1000::2/50
+
+int f0/1
+no shut 
+ipv6 enable
+ipv6 add 3001:120:1::1/48
+
+
+
+end
+
+Conf ter
+router bgp 65400
+address-family ipv6 unicast
+
+neighbor 2001:100:1000::1 remote-as 1000 !Porto
+neighbor 2001:100:1000::1 default-originate
+neighbor 2001:100:1000::1 activate
+
+network 3001:120:1::/48
+
+end
+
+write

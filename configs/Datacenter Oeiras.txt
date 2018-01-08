@@ -1,0 +1,16 @@
+conf t
+
+no ip routing
+ip default-gateway 10.2.3.1
+ip name-server 10.2.2.2
+ip domain lookup
+
+int f0/0
+ip addr 10.2.3.2 255.255.255.0
+ipv6 enable
+ipv6 addr 3001:10:2:3::2/64
+no shut
+
+end
+write
+

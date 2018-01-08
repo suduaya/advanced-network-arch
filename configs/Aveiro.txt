@@ -16,7 +16,7 @@ int f0/0
 ip add 10.0.0.2 255.255.255.0
 ip ospf 1 area 0
 mpls traffic-eng tunnels
-ip rsvp bandwidth 4096 4096
+ip rsvp bandwidth 20480 20480
 mpls ip
 no shut
 
@@ -34,8 +34,14 @@ int f1/0
 ip add 192.100.1.13 255.255.255.252
 ip ospf 1 area 0
 mpls traffic-eng tunnels
-ip rsvp bandwidth 4096 4096
+ip rsvp bandwidth 20480 20480
 mpls ip
+no shut
+
+!Datacenter link
+int f1/1
+ip add 10.2.1.1 255.255.255.0
+ip ospf 1 area 0
 no shut
 
 !BGP configs
@@ -96,3 +102,82 @@ end
 
 
 Write
+
+!IPV6
+
+conf t
+ipv6 unicast-routing
+
+!Loopback
+int loopback0
+Ipv6 enable
+ipv6 add 2001:2001::2/128
+ipv6 ospf 1 area 0
+no shut
+
+! BGP peering links
+int f0/0 !Core
+no shut 
+ipv6 enable
+ipv6 add 2001:100::2/50
+ipv6 ospf 1 area 0
+
+int f0/1 !A1
+no shut
+ipv6 enable
+ipv6 add 2001:100:3000::1/50
+ipv6 ospf 1 area 0
+
+int f1/0 !B1
+no shut
+ipv6 enable
+ipv6 add 2001:100:4000::1/50
+ipv6 ospf 1 area 0
+
+!Datacenter link
+int f1/1
+ipv6 enable
+ipv6 add 3001:10:2:1::1/64 
+ipv6 ospf 1 area 0
+no shut
+end
+
+
+!traffic madrid
+conf t
+ip as-path access-list 3 permit 200.*
+route-map ip-trafficmadrid-1 permit 10
+match as-path 3
+set local-preference 400
+route-map ip-trafficmadrid-2 permit 20
+exit
+router bgp 1000
+address-family ipv4 unicast
+neighbor 10.10.10.1 route-map ip-trafficmadrid-1 in
+end
+write mem
+
+
+conf t
+! BGP CONFIGS
+router bgp 1000
+address-family ipv6 unicast
+redistribute connected
+redistribute ospf 1 match internal external 1 external 2
+
+
+neighbor 2001:2001::3 remote-as 1000 !Lisboa2
+neighbor 2001:2001::3 next-hop-self
+neighbor 2001:2001::3 update-source Loopback 0 
+
+neighbor 2001:2001::1 remote-as 1000 !Porto
+neighbor 2001:2001::1 next-hop-self
+neighbor 2001:2001::1 update-source Loopback 0
+
+neighbor 2001:2001::4 remote-as 1000 !Oeiras
+neighbor 2001:2001::4 next-hop-self
+neighbor 2001:2001::4 update-source Loopback 0
+
+
+End
+write mem

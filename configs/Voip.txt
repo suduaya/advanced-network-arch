@@ -1,0 +1,76 @@
+sudo ifconfig eth0 65.0.1.2 netmask 255.255.255.0
+sudo route add default gw 65.0.1.1 eth0
+
+
+
+[PintoDaCosta]
+type=friend
+host=dynamic
+secret=labcom
+context=phones
+allow=all
+
+[BrunoCarvalho]
+type=friend
+host=dynamic
+secret=labcom
+context=phones
+allow=all
+
+[LuisVieira]
+type=friend
+host=dynamic
+secret=labcom
+context=phones
+allow=all
+
+
+[phones]
+
+exten => 2000,1,Answer(500)
+exten => 2000,n,Playback(demo-congrats)
+exten => 2000,n,PlayBack(vm-goodbye)
+exten => 2000,n,Hangup()
+
+exten => 234100000,1,Answer(500)
+exten => 234100000,n,PlayBack(vm-goodbye)
+exten => 234100000,n,Hangup()
+
+exten => 219100000,1,Answer(500)
+exten => 219100000,n,PlayBack(vm-goodbye)
+exten => 219100000,n,Hangup()
+
+exten => 234110000,1,Answer(500)
+exten => 234110000,n,PlayBack(vm-goodbye)
+exten => 234110000,n,Hangup()
+
+exten => 219110000,1,Answer(500)
+exten => 219110000,n,PlayBack(vm-goodbye)
+exten => 219110000,n,Hangup()
+
+
+
+[Server2]
+type=peer
+host=65.0.2.2
+secret=labcom
+username=Server1
+
+exten => _.,1,Dial(SIP/${EXTEN}@Server2,10)
+
+------------------------------------
+sudo ifconfig eth0 65.0.2.2 netmask 255.255.255.0
+sudo route add default gw 65.0.2.1 eth0
+
+[Server1]
+type=peer
+host=65.0.1.2
+secret=labcom
+context=phones
+
+[phones]
+exten => _.,1,Answer(500)
+exten => _.,2,PlayBack(vm-received)
+exten => _.,3,SayDigits(${EXTEN:3})
+exten => _.,n,PlayBack(vm-goodbye)
+exten => _.,n,Hangup()

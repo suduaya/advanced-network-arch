@@ -83,15 +83,103 @@ neighbor 4.4.4.1 distribute-list fOut-priv-default out
 !neighbor 10.0.0.10 distribute-list fOut-priv-default out
 end
 
-! Deny Sintra traffic from outer routers
+! Deny Madrid traffic from outer routers
 conf t
-ip prefix-list PL-SINTRA seq 10 deny 65.0.1.0/24
-ip prefix-list PL-SINTRA seq 100 permit 0.0.0.0/0 le 32
+ip prefix-list PL-MADRID seq 10 deny 65.0.1.0/24
+ip prefix-list PL-MADRID seq 100 permit 0.0.0.0/0 le 32
 router bgp 1000
 address-family ipv4 unicast
-neighbor 4.4.4.1 prefix-list PL-SINTRA in
+neighbor 4.4.4.1 prefix-list PL-MADRID in
 
 end
 
 
 wr me
+
+
+
+!IPv6
+
+
+conf t
+ipv6 unicast-routing
+
+
+!Loopback
+int loopback0
+Ipv6 enable
+ipv6 add 2001:2001::1/128
+ipv6 ospf 1 area 0
+no shut
+
+
+! BGP peering links
+int f0/0 !Madrid
+no shut 
+ipv6 enable
+ipv6 add 2001:4:4:1::2/64
+
+int f0/1 !Core
+no shut
+ipv6 enable
+ipv6 add 2001:100::1/50
+ipv6 ospf 1 area 0
+
+int f1/0 !EmpC
+no shut
+ipv6 enable
+ipv6 add 2001:100:1000::1/50
+End
+
+!OSPF
+Conf ter
+ipv6 router ospf 1
+distance 220
+Exit
+
+! BGP CONFIGS
+router bgp 1000
+
+address-family ipv6 unicast
+
+neighbor 2001:4:4:1::1 remote-as 20000 !Madrid
+neighbor 2001:4:4:1::1 default-originate
+neighbor 2001:4:4:1::1 activate
+
+neighbor 2001:100:1000::2 remote-as 65400 !EmpC
+neighbor 2001:100:1000::2 default-originate
+neighbor 2001:100:1000::2 activate
+ 
+neighbor 2001:2001::2 remote-as 1000 !Aveiro
+neighbor 2001:2001::2 next-hop-self
+neighbor 2001:2001::2 update-source Loopback 0
+
+neighbor 2001:2001::3 remote-as 1000 !Lisboa2
+neighbor 2001:2001::3 next-hop-self
+neighbor 2001:2001::3 update-source Loopback 0
+
+neighbor 2001:2001::4 remote-as 1000 !Oeiras
+neighbor 2001:2001::4 next-hop-self
+neighbor 2001:2001::4 update-source Loopback 0
+
+
+End
+
+
+!non-transit
+Conf ter
+! Route Maps - Non Transit
+ip as-path access-list 1 permit ^$ 
+ip as-path access-list 1 permit _65400_
+route-map non-transit 
+match as-path 1 
+
+Router bgp 1000
+address-family ipv6 unicast
+redistribute connected
+redistribute ospf 1 match internal external 1 external 2
+neighbor 2001:4:4:1::1 route-map non-transit out
+End
+
+
+write mem

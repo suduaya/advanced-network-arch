@@ -53,3 +53,66 @@ network 200.200.1.0 mask 255.255.255.0	!M2
 
 End
 write mem
+
+
+
+!IPv6
+
+
+conf t
+ipv6 unicast-routing
+ipv6 route ::/0 f1/1
+
+int f1/1 !internet
+shut
+ipv6 add 2002:2:2::1/64
+ipv6 enable
+
+int f2/0 !M1
+no shut
+ipv6 enable
+ipv6 add 2201:200:100::1/48
+
+int f2/1 !M2
+no shut
+ipv6 enable
+ipv6 add 2201:200:200::1/48
+
+! BGP peering links
+int f0/0
+no shut
+ipv6 enable
+ipv6 add 2001:4:4:3::1/64
+
+in f0/1
+no shut
+ipv6 enable
+ipv6 add 2001:4:4:2::1/64
+
+int f1/0
+no shut
+ipv6 enable
+ipv6 add 2001:4:4:1::1/64
+
+! BGP CONFIGS
+router bgp 20000
+address-family ipv6 unicast
+
+neighbor 2001:4:4:3::2 remote-as 40000 !lisboa1
+neighbor 2001:4:4:3::2 default-originate
+neighbor 2001:4:4:3::2 activate
+
+neighbor 2001:4:4:2::2 remote-as 1000 !lisboa2
+neighbor 2001:4:4:2::2 default-originate
+neighbor 2001:4:4:2::2 activate
+
+neighbor 2001:4:4:1::2 remote-as 1000 !porto
+neighbor 2001:4:4:1::2 default-originate
+neighbor 2001:4:4:1::2 activate
+
+network 2201:200:100::/48 
+network 2201:200:200::/48 
+
+
+End
+write mem
