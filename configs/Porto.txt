@@ -76,11 +76,13 @@ end
 conf t
 ip access-list standard fOut-priv-default
 10 deny 192.100.0.0 0.0.255.255
+11 deny 10.0.0.0 0.255.255.255
+12 permit 10.2.0.0 0.0.255.255
 100 permit any
 router bgp 1000
 address-family ipv4 unicast
 neighbor 4.4.4.1 distribute-list fOut-priv-default out
-!neighbor 10.0.0.10 distribute-list fOut-priv-default out
+neighbor 192.100.1.2 distribute-list fOut-priv-default out
 end
 
 ! Deny Madrid traffic from outer routers

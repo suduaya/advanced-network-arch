@@ -112,6 +112,8 @@ distance 220
 conf t
 ip access-list standard fOut-priv-default
 10 deny 192.100.0.0 0.0.255.255
+11 deny 10.0.0.0 0.255.255.255
+12 permit 10.2.0.0 0.0.255.255
 100 permit any
 router bgp 1000
 address-family ipv4 unicast
